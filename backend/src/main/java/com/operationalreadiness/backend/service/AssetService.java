@@ -20,4 +20,8 @@ public class AssetService {
     public Asset getAssetById(Long id) {
         return assetRepository.findById(id).orElse(null);
     }
+
+    public Asset createAsset(Asset asset) {
+        return assetRepository.save(asset);
+    }
 }

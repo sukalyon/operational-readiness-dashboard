@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.operationalreadiness.backend.service.AssetService;
 import com.operationalreadiness.backend.model.Asset;
 import java.util.List;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 public class AssetController {
@@ -23,6 +25,11 @@ public class AssetController {
     @GetMapping("/api/assets/{id}")
     public Asset getAssetById(@PathVariable Long id) {
         return assetService.getAssetById(id);
+    }
+
+    @PostMapping("/api/assets")
+    public Asset createAsset(@RequestBody Asset asset) {
+        return assetService.createAsset(asset);
     }
 
 }
