@@ -8,6 +8,11 @@ import com.operationalreadiness.backend.model.Asset;
 import java.util.List;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import com.operationalreadiness.backend.model.AssetStatus;
 
 @RestController
 public class AssetController {
@@ -30,6 +35,22 @@ public class AssetController {
     @PostMapping("/api/assets")
     public Asset createAsset(@RequestBody Asset asset) {
         return assetService.createAsset(asset);
+    }
+
+    @DeleteMapping("/api/assets/{id}")
+    public void deleteAsset(@PathVariable Long id) {
+        assetService.deleteAsset(id);
+
+    }
+
+    @PutMapping("/api/assets/{id}")
+    public Asset updateAsset(@PathVariable Long id, @RequestBody Asset updatedAsset) {
+        return assetService.updateAsset(id, updatedAsset);
+    }
+
+    @PatchMapping("/api/assets/{id}/status")
+    public Asset updateAssetStatus(@PathVariable Long id, @RequestParam AssetStatus status) {
+        return assetService.updateAssetStatus(id, status);
     }
 
 }
