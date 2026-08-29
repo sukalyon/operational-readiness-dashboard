@@ -42,4 +42,20 @@ public class Asset {
     public AssetStatus getStatus() {
         return status;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setStatus(AssetStatus status) {
+        this.status = status;
+    }
 }
